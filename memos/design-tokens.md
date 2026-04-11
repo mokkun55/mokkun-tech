@@ -1,0 +1,35 @@
+# Design Tokens - カラー一覧
+
+design.pen で定義されているカラー変数。テーマは `light` / `dark` の2種。
+
+## テキスト
+
+| 変数名 | Light | Dark | 用途 |
+|---|---|---|---|
+| `text-primary` | `#1A1A1A` | `#F0F0F0` | 見出し・本文 |
+| `text-secondary` | `#666666` | `#A0A0A0` | 補足テキスト・ナビ |
+| `text-muted` | `#999999` | `#555555` | 非活性・淡いテキスト |
+| `text-inverse` | `#FFFFFF` | `#FFFFFF` | アクセントボタン上のテキスト等 |
+
+## 背景
+
+| 変数名 | Light | Dark | 用途 |
+|---|---|---|---|
+| `bg-primary` | `#FFFFFF` | `#0E0E12` | ページ背景 |
+| `bg-secondary` | `#F0F8FF` | `#161620` | セクション背景 |
+| `bg-accent-light` | `#E3F4FA` | `#1A2A35` | アクセント薄背景 |
+| `card-bg` | `#FFFFFF` | `#1C1C26` | カード背景 |
+
+## アクセント
+
+| 変数名 | Light | Dark | 用途 |
+|---|---|---|---|
+| `accent` | `#7ECDE6` | `#7ECDE6` | メインアクセント |
+| `accent-dark` | `#5BB8D4` | `#8ED8EE` | ホバー・強調時 |
+
+## ボーダー・シャドウ
+
+| 変数名 | Light | Dark | 用途 |
+|---|---|---|---|
+| `border-light` | `#E8EDF2` | `#2A2A35` | 区切り線・ボーダー |
+| `shadow-color` | `#0000000D` | `#00000040` | ドロップシャドウ |
