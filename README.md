@@ -1,43 +1,54 @@
-# Astro Starter Kit: Minimal
+# Portfolio
+
+Astro で作るポートフォリオサイトです。
+
+## 前提環境
+
+- Node.js `>=22.12.0`
+- pnpm
+
+日常的なコマンド案内は `ni` / `nr` を前提にしています。
+
+## セットアップ
+
+依存関係をインストールします。
 
 ```sh
-pnpm create astro@latest -- --template minimal
+ni
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 開発
 
-## 🚀 Project Structure
+ローカル開発サーバーを起動します。
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+nr dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+通常は `http://localhost:4321` で確認できます。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 確認手順
 
-Any static assets, like images, can be placed in the `public/` directory.
+実装後は最低限、次の 2 つを実行します。
 
-## 🧞 Commands
+1. Astro の型・構成チェックを実行する
 
-All commands are run from the root of the project, from a terminal:
+```sh
+nr check
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+2. 本番ビルドが通ることを確認する
 
-## 👀 Want to learn more?
+```sh
+nr build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`nr check` は `astro check` を実行し、`.astro` ファイルを含む型や設定の崩れを確認します。
+`nr build` は本番用ビルドが成功するかを確認します。
+
+## 利用できるコマンド
+
+- `nr dev`: 開発サーバーを起動する
+- `nr build`: 本番ビルドを実行する
+- `nr preview`: ビルド済みサイトをローカルで確認する
+- `nr check`: Astro の型・構成チェックを実行する
