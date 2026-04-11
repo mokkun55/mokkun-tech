@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="footer">
+  <div class="icons">
+    <a href="https://github.com/mokkun55" target="_blank">
+      <Icon name="github" />
+    </a>
+    <a href="https://zenn.dev/mokkun_dev" target="_blank">
+      <Icon name="zenn" />
+    </a>
+    <a href="https://x.com/mokkun_dev" target="_blank">
+      <Icon name="x" />
+    </a>
+  </div>
+  <div class="texts">
+    <a href="/privacy" class="privacy">プライバシーポリシー</a>
+    <p>&copy; mokkun.tech</p>
+  </div>
+</div>
+
+<style>
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 48px 0;
+    background-color: var(--bg-footer);
+    width: 100%;
+
+    .icons {
+      display: flex;
+      gap: 24px;
+      color: var(--text-inverse);
+      font-size: 2rem;
+    }
+
+    .texts {
+      display: flex;
+      gap: 24px;
+      color: var(--text-footer);
+
+      .privacy {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+</style>

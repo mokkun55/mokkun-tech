@@ -1,0 +1,20 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout
+  breadcrumbs={[{ label: "Top", href: "/" }, { label: "Test" }]}
+  title="テストページ"
+>
+  <div class="section">
+    <div class="container">
+      <h1>ほげほげ</h1>
+    </div>
+  </div>
+</PageLayout>
+
+<style>
+  .section {
+    background: var(--bg-accent-light);
+  }
+</style>

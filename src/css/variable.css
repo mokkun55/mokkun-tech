@@ -1,0 +1,47 @@
+:root {
+  /* テキスト */
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-inverse: #ffffff;
+  --text-footer: #666666;
+
+  /* 背景 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f8ff;
+  --bg-accent-light: #e3f4fa;
+  --card-bg: #ffffff;
+  --bg-footer: #1a1a1a;
+
+  /* アクセント */
+  --accent: #7ecde6;
+  --accent-dark: #5bb8d4;
+
+  /* ボーダー・シャドウ */
+  --border-light: #e8edf2;
+  --shadow-color: #0000000d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* テキスト */
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #555555;
+    --text-inverse: #ffffff;
+
+    /* 背景 */
+    --bg-primary: #0e0e12;
+    --bg-secondary: #161620;
+    --bg-accent-light: #1a2a35;
+    --card-bg: #1c1c26;
+
+    /* アクセント */
+    --accent: #7ecde6;
+    --accent-dark: #8ed8ee;
+
+    /* ボーダー・シャドウ */
+    --border-light: #2a2a35;
+    --shadow-color: #00000040;
+  }
+}
