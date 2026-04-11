@@ -2,4 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout> ほげほげ </Layout>
+<Layout>
+  <div class="section hero">
+    <h1>ヒーローセクション</h1>
+  </div>
+
+  <div class="section hoge">
+    <div class="container">ほげセクション</div>
+  </div>
+
+  <!-- ほかセクションが来る -->
+  <!-- これはコンポーネントにする -->
+</Layout>
+
+<style>
+  .hero {
+    background: var(--bg-accent-light);
+    height: 100vh;
+  }
+</style>

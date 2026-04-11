@@ -1,0 +1,29 @@
+:root {
+  --container-width: 1120px;
+  --prose-width: 720px;
+  --gutter: 16px;
+}
+
+html {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main {
+  flex: 1;
+}
+
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--container-width));
+  margin-inline: auto;
+}
+
+.section {
+  width: 100%;
+}
