@@ -1,54 +1,73 @@
-# Portfolio
+# mokkun.tech
 
-Astro で作るポートフォリオサイトです。
+## プロジェクト概要
 
-## 前提環境
+このリポジトリは、もっくんのポートフォリオサイト(https://mokkun.tech)のリポジトリです。
 
-- Node.js `>=22.12.0`
+## 使用技術
+
+- Astro
+- TypeScript
+- ESLint
+- Prettier
+- Node.js (mise)
 - pnpm
 
-日常的なコマンド案内は `ni` / `nr` を前提にしています。
+## よく使うコマンド
 
-## セットアップ
+### 依存関係のインストール
 
-依存関係をインストールします。
+`pnpm install`
 
-```sh
-ni
+### 開発サーバー起動
+
+`pnpm dev`
+通常は`http://localhost:4321`で起動します。
+
+### ビルド
+
+`pnpm build`
+
+### lint, format, check
+
+`pnpm lint`
+`pnpm format`
+`pnpm check`
+
+### ディレクトリ構成
+
+このプロジェクトでは、`bulletproof-react` の考え方を参考に、
+**機能単位で責務をまとめる feature directory 方針**を採用します。
+
+```text
+ src/
+ ├─ pages/                  # Astro のルーティング入口
+ │  └─ index.astro
+ ├─ features/               # 機能単位の実装をまとめる
+ │  ├─ home/
+ │  │  ├─ components/
+ │  │  ├─ data/
+ │  │  ├─ types/
+ │  │  └─ utils/
+ │  └─ profile/
+ │     ├─ components/
+ │     ├─ data/
+ │     ├─ types/
+ │     └─ utils/
+ ├─ components/             # 複数 feature で共有する UI
+ ├─ layouts/                # レイアウト
+ ├─ lib/                    # 外部依存や共通ユーティリティ
+ ├─ styles/                 # グローバルスタイル
+ └─ types/                  # 全体で共有する型定義
 ```
 
-## 開発
+### 方針
 
-ローカル開発サーバーを起動します。
-
-```sh
-nr dev
-```
-
-通常は `http://localhost:4321` で確認できます。
-
-## 確認手順
-
-実装後は最低限、次の 2 つを実行します。
-
-1. Astro の型・構成チェックを実行する
-
-```sh
-nr check
-```
-
-2. 本番ビルドが通ることを確認する
-
-```sh
-nr build
-```
-
-`nr check` は `astro check` を実行し、`.astro` ファイルを含む型や設定の崩れを確認します。
-`nr build` は本番用ビルドが成功するかを確認します。
-
-## 利用できるコマンド
-
-- `nr dev`: 開発サーバーを起動する
-- `nr build`: 本番ビルドを実行する
-- `nr preview`: ビルド済みサイトをローカルで確認する
-- `nr check`: Astro の型・構成チェックを実行する
+- src/pages/ はルーティングとページ組み立てに集中させます。
+- UI やデータ、補助関数はページ直下に散らさず、src/features/ 配下に機能
+  単位でまとめます。
+- 特定の機能に閉じたコンポーネントは features/[feature]/components/ に置
+  きます。
+- 複数の機能から再利用するものだけを src/components/ や src/lib/ に切り
+  出します。
+- まず feature 内に置き、明確に共有が必要になった段階で共通化します。
