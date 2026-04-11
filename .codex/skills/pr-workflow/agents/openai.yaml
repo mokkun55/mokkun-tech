@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR ワークフロー"
+  short_description: "ブランチ作成から push と PR 準備まで担当"
+  default_prompt: "このリポジトリのブランチ作成、ステージング、コミット、push、PR 準備を $pr-workflow で進めてください。"
