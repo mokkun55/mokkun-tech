@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Issue ワークフロー"
+  short_description: "issue の切り分け、作成、label 整理を進める"
+  default_prompt: "このリポジトリの issue 切り分け、gh での issue 作成、日本語 label の整理を $github-issue-workflow で進めてください。"
