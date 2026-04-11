@@ -8,11 +8,12 @@ interface BreadcrumbItem {
 
 interface Props {
   breadcrumbs: BreadcrumbItem[];
+  title: string;
 }
-const { breadcrumbs = [] } = Astro.props;
+const { breadcrumbs = [], title } = Astro.props;
 ---
 
-<Layout>
+<Layout title={`もっくん - ${title}`}>
   <div class="section">
     <div class="container">
       <ul class="breadcrumbs">

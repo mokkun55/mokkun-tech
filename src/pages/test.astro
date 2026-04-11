@@ -2,7 +2,10 @@
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<PageLayout breadcrumbs={[{ label: "hoge" }, { label: "huga" }]}>
+<PageLayout
+  breadcrumbs={[{ label: "Top", href: "/" }, { label: "Test" }]}
+  title="テストページ"
+>
   <div class="section">
     <div class="container">
       <h1>ほげほげ</h1>
