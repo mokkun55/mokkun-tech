@@ -3,20 +3,27 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Tag from "./Tag.astro";
 
-interface Props {
-  img: ImageMetadata;
-  title: string;
-  text: string;
-  tags: string[];
-  type: "work" | "blog";
-  id: string;
-}
+type Props =
+  | {
+      type: "work";
+      img: ImageMetadata;
+      title: string;
+      text: string;
+      tags: string[];
+      id: string;
+    }
+  | { type: "blog"; title: string; text: string; tags: string[]; id: string };
 
-const { title, text, tags, img, type, id } = Astro.props;
+const { title, text, tags, type, id } = Astro.props;
 ---
 
 <a class="card" href={`/${type}/${id}`}>
-  <Image src={img} alt={`works-img-${title}`} class="img" />
+  {
+    type === "work" && (
+      // MEMO destructuring後は型の絞り込みが失われるため、img は Astro.props から直接アクセス
+      <Image src={Astro.props.img} alt={`works-img-${title}`} class="img" />
+    )
+  }
   <div class="text-area">
     <h1 class="title">{title}</h1>
     <p class="text">{text}</p>
@@ -32,15 +39,15 @@ const { title, text, tags, img, type, id } = Astro.props;
   </div>
 </a>
 
-<style>
+<style define:vars={{ textFontSize: type === "blog" ? "0.8rem" : "1rem" }}>
   .card {
-    flex: 1;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 4px 16px var(--shadow-color);
     border-radius: 16px;
     background: var(--card-bg);
     transition: all 0.4s ease;
+    width: 300px;
 
     &:hover {
       box-shadow: none;
@@ -64,6 +71,7 @@ const { title, text, tags, img, type, id } = Astro.props;
 
       .text {
         color: var(--text-secondary);
+        font-size: var(--textFontSize);
       }
 
       .tags {

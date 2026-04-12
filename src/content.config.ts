@@ -4,11 +4,10 @@ import { z } from "zod";
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       description: z.string(),
-      thumbnailImage: image(),
       publishDate: z.coerce.date(),
       tags: z.array(z.string()).optional().default([]),
       draft: z.boolean().optional().default(false),
