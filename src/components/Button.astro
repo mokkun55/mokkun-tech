@@ -1,0 +1,89 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  type?: "filled" | "outline" | "dark";
+  label: string;
+  fullWidth?: boolean;
+  href: string;
+  isDisabled?: boolean;
+  icon?: string;
+}
+
+const {
+  type = "filled",
+  label,
+  fullWidth = false,
+  href,
+  isDisabled,
+  icon,
+} = Astro.props;
+---
+
+<a
+  class:list={[
+    "button",
+    type,
+    { "full-width": fullWidth, disabled: isDisabled },
+  ]}
+  href={isDisabled ? undefined : href}
+>
+  {icon && <Icon name={icon} class="icon" />}
+  <p class="label">{label}</p>
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    .icon {
+      font-size: 1.2rem;
+    }
+
+    &.filled {
+      background: var(--accent);
+      color: var(--text-inverse);
+
+      &:hover {
+        background: var(--accent-dark);
+      }
+    }
+
+    &.outline {
+      background: transparent;
+      border: solid 1.5px var(--border-light);
+      color: var(--text-primary);
+
+      &:hover {
+        border-color: var(--accent);
+        color: var(--accent-dark);
+      }
+    }
+
+    &.dark {
+      background: var(--bg-footer);
+      color: var(--text-inverse);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+
+    &.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+</style>

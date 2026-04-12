@@ -1,0 +1,29 @@
+---
+interface Props {
+  label: string;
+  size?: "sm" | "md";
+}
+
+const { label, size = "md" } = Astro.props;
+---
+
+<span class:list={["tag", size]}>{label}</span>
+
+<style>
+  .tag {
+    background: var(--bg-accent-light);
+    color: var(--accent-dark);
+    border-radius: 999px;
+    width: fit-content;
+
+    &.sm {
+      padding: 3px 10px;
+      font-size: 0.75rem;
+    }
+
+    &.md {
+      padding: 6px 14px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
