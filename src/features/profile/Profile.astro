@@ -1,0 +1,43 @@
+---
+import Section from "@/components/Section.astro";
+import TechStacks from "./components/TechStacks.astro";
+---
+
+<div class="section" id="Profile">
+  <div class="container">
+    <Section title="Profile" />
+    <div class="description">
+      <!-- TODO 文言変える -->
+      <p>こんにちは、もっくんと申します。</p>
+      <p>
+        近畿大学工業高等専門学校で情報システムとプログラミングを学び、在学中は学生寮の寮長も務めました。
+      </p>
+      <p>
+        卒業後はエンジニアとして入社し、現在はフロントエンドを中心にWeb開発を楽しんでいます。
+      </p>
+      <p>ガジェット・アニメ・麻雀・かわいいものが好きです。</p>
+    </div>
+    <TechStacks />
+  </div>
+</div>
+
+<style>
+  .section {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+    }
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  tags: string[];
+}
+
+const { title, tags } = Astro.props;
+---
+
+<div class="area">
+  <p class="title">{title}</p>
+  <ul class="tag-area">
+    {
+      tags.map((tag) => {
+        return <li class="tag">{tag}</li>;
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  .area {
+    background: var(--bg-accent-light);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    flex: 1;
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      text-align: center;
+    }
+
+    .tag-area {
+      display: flex;
+      flex-wrap: wrap;
+
+      .tag {
+        &:not(:last-child)::after {
+          content: "/";
+          color: var(--text-muted);
+          margin: 0 4px;
+        }
+      }
+    }
+  }
+</style>
