@@ -21,7 +21,13 @@ const { title, text, tags, img, type, id } = Astro.props;
     <h1 class="title">{title}</h1>
     <p class="text">{text}</p>
     <ul class="tags">
-      {tags.map((tag) => <li><Tag label={tag} size="sm" /></li>)}
+      {
+        tags.map((tag) => (
+          <li>
+            <Tag label={tag} size="sm" />
+          </li>
+        ))
+      }
     </ul>
   </div>
 </a>

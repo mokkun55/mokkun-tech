@@ -21,7 +21,11 @@ const {
 ---
 
 <a
-  class:list={["button", type, { "full-width": fullWidth, disabled: isDisabled }]}
+  class:list={[
+    "button",
+    type,
+    { "full-width": fullWidth, disabled: isDisabled },
+  ]}
   href={isDisabled ? undefined : href}
 >
   {icon && <Icon name={icon} class="icon" />}
