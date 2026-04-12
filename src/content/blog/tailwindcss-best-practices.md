@@ -34,7 +34,7 @@ import clsx from "clsx";
 const buttonClass = clsx(
   "px-4 py-2 rounded-lg",
   isDisabled && "opacity-50 cursor-not-allowed",
-  isPrimary ? "bg-blue-500" : "bg-gray-200"
+  isPrimary ? "bg-blue-500" : "bg-gray-200",
 );
 ```
 

@@ -33,7 +33,7 @@ useEffect(() => {
 
 ```tsx
 const handleClick = useCallback(() => {
-  setCount(c => c + 1);
+  setCount((c) => c + 1);
 }, []);
 ```
 

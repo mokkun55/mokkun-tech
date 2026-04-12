@@ -25,9 +25,7 @@ const config = {
 条件分岐を型安全にします。
 
 ```ts
-type Result<T> =
-  | { success: true; data: T }
-  | { success: false; error: string };
+type Result<T> = { success: true; data: T } | { success: false; error: string };
 ```
 
 ## 3. Template Literal Types
