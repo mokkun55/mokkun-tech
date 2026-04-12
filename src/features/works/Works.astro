@@ -1,0 +1,60 @@
+---
+import Card from "@/components/Card.astro";
+import Section from "@/components/Section.astro";
+import TestImg from "@/assets/proconHP.png";
+---
+
+<div class="section" id="Profile">
+  <div class="container">
+    <Section title="Works" />
+
+    <div class="card-area">
+      <Card
+        type="work"
+        title="title"
+        text="text-texttexttext"
+        tags={["React", "Next"]}
+        img={TestImg}
+        id="1"
+      />
+      <Card
+        type="work"
+        title="title"
+        text="text-texttexttext"
+        tags={["React", "Next"]}
+        img={TestImg}
+        id="1"
+      />
+      <Card
+        type="work"
+        title="title"
+        text="text-texttexttext"
+        tags={["React", "Next"]}
+        img={TestImg}
+        id="1"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+
+      .card-area {
+        display: flex;
+        gap: 24px;
+        @media (max-width: 480px) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+</style>

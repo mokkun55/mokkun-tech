@@ -2,19 +2,16 @@
 import Profile from "@/features/profile/Profile.astro";
 import Hero from "../features/hero/Hero.astro";
 import Layout from "../layouts/Layout.astro";
+import Works from "@/features/works/Works.astro";
 ---
 
 <Layout title="もっくん">
   <Hero />
 
   <Profile />
-  <!-- TODO ↓はコンポーネントに切り分ける必要あり -->
 
-  <div class="section" id="Works">
-    <div class="container">
-      <h1>Works</h1>
-    </div>
-  </div>
+  <Works />
+  <!-- TODO ↓はコンポーネントに切り分ける必要あり -->
 
   <div class="section" id="Blogs">
     <div class="container">
