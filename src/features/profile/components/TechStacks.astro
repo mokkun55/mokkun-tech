@@ -1,0 +1,52 @@
+---
+import TechStackArea from "./TechStackArea.astro";
+---
+
+<div class="tech-stack-area">
+  <h3>TechStack</h3>
+  <div class="tech-stacks">
+    <TechStackArea
+      title="Frontend"
+      tags={[
+        "React.js",
+        "Astro.js",
+        "Astro.js",
+        "Astro.js",
+        "React.js",
+        "React.js",
+        "React.js",
+        "Astro.js",
+        "Astro.js",
+        "Astro.js",
+        "React.js",
+        "React.js",
+      ]}
+    />
+    <TechStackArea title="Backend" tags={["React.js", "Astro.js"]} />
+    <TechStackArea title="Tools" tags={["React.js", "Astro.js"]} />
+  </div>
+</div>
+
+<style>
+  .tech-stack-area {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .tech-stacks {
+      display: flex;
+      gap: 24px;
+      width: min(1000px, 90vw);
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+      }
+    }
+  }
+</style>
