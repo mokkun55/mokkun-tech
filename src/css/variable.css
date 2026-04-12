@@ -12,6 +12,10 @@
   --bg-accent-light: #e3f4fa;
   --card-bg: #ffffff;
   --bg-footer: #1a1a1a;
+  /* Heroの四角 */
+  --color-grad-1: #fff;
+  --color-grad-2: #f0f9ff;
+  --hero-circle: #b8e3ffbe;
 
   /* アクセント */
   --accent: #7ecde6;
@@ -35,6 +39,11 @@
     --bg-secondary: #161620;
     --bg-accent-light: #1a2a35;
     --card-bg: #1c1c26;
+
+    /* Heroの背景 */
+    --color-grad-1: #0e0e12;
+    --color-grad-2: #161620;
+    --hero-circle: rgba(126, 205, 230, 0.08);
 
     /* アクセント */
     --accent: #7ecde6;
