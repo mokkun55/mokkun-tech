@@ -21,7 +21,7 @@ export default [
         },
       ],
       "astro/no-set-html-directive": "error",
-      "astro/no-unused-css-selector": "warn",
+      "astro/no-unused-css-selector": "off",
     },
   },
   eslintConfigPrettier,
