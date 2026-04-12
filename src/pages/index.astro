@@ -1,24 +1,33 @@
 ---
+import Hero from "../features/hero/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="もっくん">
-  <div class="section hero">
-    <h1>ヒーローセクション</h1>
-    <a href="/test">テストページへ</a>
+  <Hero />
+
+  <!-- TODO ↓はコンポーネントに切り分ける必要あり -->
+  <div class="section" id="Profile">
+    <div class="container">
+      <h1>Profile</h1>
+    </div>
   </div>
 
-  <div class="section hoge">
-    <div class="container">ほげセクション</div>
+  <div class="section" id="Works">
+    <div class="container">
+      <h1>Works</h1>
+    </div>
   </div>
 
-  <!-- ほかセクションが来る -->
-  <!-- これはコンポーネントにする -->
+  <div class="section" id="Blogs">
+    <div class="container">
+      <h1>Blogs</h1>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  .hero {
-    background: var(--bg-accent-light);
-    height: 100vh;
+  .section:nth-child(even) {
+    background: var(--bg-secondary);
   }
 </style>
