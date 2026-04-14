@@ -1,0 +1,72 @@
+---
+import { getEntry, render } from "astro:content";
+import PageLayout from "@/layouts/PageLayout.astro";
+import { formatDate } from "@/utils/date";
+
+const privacy = await getEntry("page", "privacy");
+const { Content } = await render(privacy!);
+---
+
+<PageLayout
+  title="プライバシーポリシー"
+  breadcrumbs={[
+    {
+      label: "Top",
+      href: "/",
+    },
+    {
+      label: "Privacy",
+    },
+  ]}
+>
+  <div class="container">
+    <div class="title">
+      <h1>{privacy!.data.title}</h1>
+      <p>最終更新日: {formatDate(privacy!.data.date)}</p>
+    </div>
+    <hr />
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</PageLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  hr {
+    color: var(--border-light);
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 32px;
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    p {
+      color: var(--text-muted);
+    }
+  }
+
+  .content {
+    margin-bottom: 32px;
+    h2 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 180%;
+    }
+  }
+</style>
