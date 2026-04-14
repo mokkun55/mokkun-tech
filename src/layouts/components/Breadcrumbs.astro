@@ -16,8 +16,8 @@ const { breadcrumbs } = Astro.props;
   {
     breadcrumbs.map((item) => {
       return item.href ? (
-        <a href={item.href} class="item">
-          {item.label}
+        <a href={item.href} class="item link">
+          <span>{item.label}</span>
         </a>
       ) : (
         <p class="item">{item.label}</p>
@@ -33,16 +33,25 @@ const { breadcrumbs } = Astro.props;
     /* TODO: サイズ後から調整↓↓↓ */
     font-size: 1rem;
     padding: 16px 0;
+    color: var(--text-secondary);
 
     .item {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--text-secondary);
 
       &:not(:last-child)::after {
         content: ">";
         color: var(--text-muted);
+      }
+    }
+
+    .link {
+      font-weight: 600;
+      color: var(--accent-dark);
+
+      &:hover span {
+        text-decoration: underline;
       }
     }
   }
