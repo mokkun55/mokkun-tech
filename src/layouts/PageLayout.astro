@@ -1,11 +1,7 @@
 ---
+import type { BreadcrumbItem } from "./components/Breadcrumbs.astro";
+import Breadcrumbs from "./components/Breadcrumbs.astro";
 import Layout from "./Layout.astro";
-
-interface BreadcrumbItem {
-  label: string;
-  href?: string;
-}
-
 interface Props {
   breadcrumbs: BreadcrumbItem[];
   title: string;
@@ -16,43 +12,8 @@ const { breadcrumbs = [], title } = Astro.props;
 <Layout title={`もっくん - ${title}`}>
   <div class="section">
     <div class="container">
-      <ul class="breadcrumbs">
-        {
-          breadcrumbs.map((item) => {
-            return item.href ? (
-              <a href={item.href} class="item">
-                {item.label}
-              </a>
-            ) : (
-              <p class="item">{item.label}</p>
-            );
-          })
-        }
-      </ul>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
     </div>
-
     <slot />
   </div>
 </Layout>
-
-<style>
-  .breadcrumbs {
-    display: flex;
-    gap: 0.5rem;
-    /* TODO: サイズ後から調整↓↓↓ */
-    font-size: 1rem;
-    padding: 16px 0;
-
-    .item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-secondary);
-
-      &:not(:last-child)::after {
-        content: ">";
-        color: var(--text-muted);
-      }
-    }
-  }
-</style>
