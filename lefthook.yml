@@ -4,3 +4,7 @@ pre-commit:
       glob: "*.{js,ts,astro,css,json,md}"
       run: pnpm prettier --write {staged_files}
       stage_fixed: true
+    - name: linter
+      glob: "*.{js,ts,astro,css,json,md}"
+      run: pnpm eslint {staged_files}
+      stage_fixed: true
