@@ -39,7 +39,7 @@ const { title, text, tags, type, id } = Astro.props;
   </div>
 </a>
 
-<style define:vars={{ textFontSize: type === "blog" ? "0.8rem" : "1rem" }}>
+<style define:vars={{ textFontSize: type === "blog" ? "0.8rem" : "1rem", borderTop: type === "blog" ? "none" : "solid 1px var(--border-light)" }}>
   .card {
     display: flex;
     flex-direction: column;
@@ -62,7 +62,7 @@ const { title, text, tags, type, id } = Astro.props;
       flex-direction: column;
       gap: 8px;
       padding: 20px;
-      border-top: solid 1px var(--border-light);
+      border-top: var(--borderTop);
 
       .title {
         font-weight: 600;
