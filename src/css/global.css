@@ -8,6 +8,7 @@ html {
   color: var(--text-primary);
   background: var(--bg-primary);
   scroll-behavior: smooth;
+  font-family: "LINE Seed JP", sans-serif;
 }
 
 body {
