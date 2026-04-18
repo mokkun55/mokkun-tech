@@ -1,0 +1,102 @@
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+  prevLink: string | undefined;
+  nextLink: string | undefined;
+  currentPageNum: number;
+  lastPageNum: number;
+}
+
+const { prevLink, nextLink, currentPageNum, lastPageNum } = Astro.props;
+
+const pageCount = Array.from({ length: lastPageNum }, (_, i) => i + 1);
+
+// 表示するページ番号と "..." を含む配列を生成
+// 例: [1, "...", 4, 5, 6, "...", 10]
+function getVisiblePages(current: number, last: number): (number | "...")[] {
+  if (last <= 5) return pageCount;
+
+  const result: (number | "...")[] = [1];
+
+  if (current > 3) result.push("...");
+
+  for (
+    let p = Math.max(2, current - 1);
+    p <= Math.min(last - 1, current + 1);
+    p++
+  ) {
+    result.push(p);
+  }
+
+  if (current < last - 2) result.push("...");
+
+  result.push(last);
+  return result;
+}
+
+const visiblePages = getVisiblePages(currentPageNum, lastPageNum);
+---
+
+<nav class="pagination">
+  <a href={prevLink} class="link-button">
+    <Icon name="chevron-left" class="prev-button" />
+  </a>
+
+  {
+    visiblePages.map((p) =>
+      p === "..." ? (
+        <span class="ellipsis">…</span>
+      ) : (
+        <a href={`/works/${p}`} class={p === currentPageNum ? "active" : ""}>
+          {p}
+        </a>
+      ),
+    )
+  }
+
+  <a href={nextLink} class="link-button">
+    <Icon name="chevron-right" class="prev-button" />
+  </a>
+</nav>
+
+<style>
+  .pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      width: 42px;
+      height: 42px;
+      border: solid 1px var(--border-light);
+      border-radius: 10px;
+
+      &:not([href]) {
+        color: var(--text-muted);
+      }
+    }
+
+    .active {
+      background: var(--accent);
+      color: var(--text-inverse);
+    }
+
+    .ellipsis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: var(--text-muted);
+    }
+
+    .link-button {
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+  }
+</style>
