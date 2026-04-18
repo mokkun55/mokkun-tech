@@ -5,9 +5,10 @@ interface Props {
   nextLink: string | undefined;
   currentPageNum: number;
   lastPageNum: number;
+  type: "works" | "blogs";
 }
 
-const { prevLink, nextLink, currentPageNum, lastPageNum } = Astro.props;
+const { prevLink, nextLink, currentPageNum, lastPageNum, type } = Astro.props;
 
 const pageCount = Array.from({ length: lastPageNum }, (_, i) => i + 1);
 
@@ -47,7 +48,7 @@ const visiblePages = getVisiblePages(currentPageNum, lastPageNum);
       p === "..." ? (
         <span class="ellipsis">…</span>
       ) : (
-        <a href={`/works/${p}`} class={p === currentPageNum ? "active" : ""}>
+        <a href={`/${type}/${p}`} class={p === currentPageNum ? "active" : ""}>
           {p}
         </a>
       ),
