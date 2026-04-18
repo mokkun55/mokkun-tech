@@ -1,26 +1,33 @@
 ---
 interface Props {
   title: string;
+  subText?: string;
 }
 
-const { title } = Astro.props;
+const { title, subText } = Astro.props;
+const gap = subText ? "12px" : "24px";
 ---
 
 <div class="section-container">
   <h2 class="title">{title}</h2>
+  {subText && <p>{subText}</p>}
   <div class="hr"></div>
 </div>
 
-<style>
+<style define:vars={{ gap }}>
   .section-container {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--gap);
     align-items: center;
 
     .title {
       font-size: 2rem;
       font-weight: 600;
+    }
+
+    p {
+      color: var(--text-muted);
     }
 
     .hr {

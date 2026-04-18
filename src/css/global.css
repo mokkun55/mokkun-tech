@@ -22,6 +22,8 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: min(100% - (var(--gutter) * 2), var(--container-width));
   margin-inline: auto;
 }
