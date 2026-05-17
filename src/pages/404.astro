@@ -298,9 +298,8 @@ import Layout from "@/layouts/Layout.astro";
   const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
   if (!isTouchDevice) {
-    const eyes = document.querySelectorAll<HTMLElement>(".eye");
-
     document.addEventListener("mousemove", (e) => {
+      const eyes = document.querySelectorAll<HTMLElement>(".eye");
       eyes.forEach((eye) => {
         const rect = eye.getBoundingClientRect();
         const eyeCenterX = rect.left + rect.width / 2;

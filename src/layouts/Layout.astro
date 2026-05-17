@@ -3,6 +3,7 @@
 import "destyle.css";
 import "../css/variable.css";
 import "../css/global.css";
+import { ClientRouter } from "astro:transitions";
 import Footer from "./components/Footer.astro";
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, isFooter = true } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@300;400;700;900&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
   </head>
 
   <body>
