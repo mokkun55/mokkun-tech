@@ -48,7 +48,10 @@ const visiblePages = getVisiblePages(currentPageNum, lastPageNum);
       p === "..." ? (
         <span class="ellipsis">…</span>
       ) : (
-        <a href={`/${type}/${p}`} class={p === currentPageNum ? "active" : ""}>
+        <a
+          href={`/${type}/page/${p}`}
+          class={p === currentPageNum ? "active" : ""}
+        >
           {p}
         </a>
       ),
