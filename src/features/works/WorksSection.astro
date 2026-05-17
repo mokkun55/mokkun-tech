@@ -2,6 +2,7 @@
 import Card from "@/components/Card.astro";
 import Section from "@/components/Section.astro";
 import Button from "@/components/Button.astro";
+import FadeIn from "@/components/FadeIn.astro";
 import { getCollection } from "astro:content";
 
 const works = (await getCollection("work", ({ data }) => !data.draft))
@@ -10,28 +11,30 @@ const works = (await getCollection("work", ({ data }) => !data.draft))
 ---
 
 <div class="section" id="Works">
-  <div class="container">
-    <Section title="Works" />
+  <FadeIn>
+    <div class="container">
+      <Section title="Works" />
 
-    <div class="card-area">
-      {
-        works.map((work) => {
-          return (
-            <Card
-              type="work"
-              title={work.data.title}
-              text={work.data.description}
-              tags={work.data.tags}
-              img={work.data.thumbnailImage}
-              id={work.id}
-            />
-          );
-        })
-      }
+      <div class="card-area">
+        {
+          works.map((work) => {
+            return (
+              <Card
+                type="work"
+                title={work.data.title}
+                text={work.data.description}
+                tags={work.data.tags}
+                img={work.data.thumbnailImage}
+                id={work.id}
+              />
+            );
+          })
+        }
+      </div>
+
+      <Button label="もっと見る" href="/works" />
     </div>
-
-    <Button label="もっと見る" href="/works" />
-  </div>
+  </FadeIn>
 </div>
 
 <style>

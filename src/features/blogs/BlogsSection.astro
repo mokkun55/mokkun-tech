@@ -2,6 +2,7 @@
 import Card from "@/components/Card.astro";
 import Section from "@/components/Section.astro";
 import Button from "@/components/Button.astro";
+import FadeIn from "@/components/FadeIn.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "@/utils/date";
 
@@ -11,27 +12,29 @@ const blogs = (await getCollection("blog", ({ data }) => !data.draft))
 ---
 
 <div class="section" id="Blogs">
-  <div class="container">
-    <Section title="Blogs" />
+  <FadeIn>
+    <div class="container">
+      <Section title="Blogs" />
 
-    <div class="card-area">
-      {
-        blogs.map((blog) => {
-          return (
-            <Card
-              type="blog"
-              title={blog.data.title}
-              text={formatDate(new Date(blog.data.publishDate))}
-              tags={blog.data.tags}
-              id={blog.id}
-            />
-          );
-        })
-      }
+      <div class="card-area">
+        {
+          blogs.map((blog) => {
+            return (
+              <Card
+                type="blog"
+                title={blog.data.title}
+                text={formatDate(new Date(blog.data.publishDate))}
+                tags={blog.data.tags}
+                id={blog.id}
+              />
+            );
+          })
+        }
+      </div>
+
+      <Button label="もっと見る" href="/blogs" />
     </div>
-
-    <Button label="もっと見る" href="/blogs" />
-  </div>
+  </FadeIn>
 </div>
 
 <style>

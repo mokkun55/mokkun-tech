@@ -1,24 +1,27 @@
 ---
 import Section from "@/components/Section.astro";
 import TechStacks from "./components/TechStacks.astro";
+import FadeIn from "@/components/FadeIn.astro";
 ---
 
 <div class="section" id="Profile">
-  <div class="container">
-    <Section title="Profile" />
-    <div class="description">
-      <!-- TODO 文言変える -->
-      <p>こんにちは、もっくんと申します。</p>
-      <p>
-        近畿大学工業高等専門学校で情報システムとプログラミングを学び、在学中は学生寮の寮長も務めました。
-      </p>
-      <p>
-        卒業後はエンジニアとして入社し、現在はフロントエンドを中心にWeb開発を楽しんでいます。
-      </p>
-      <p>ガジェット・アニメ・麻雀・かわいいものが好きです。</p>
+  <FadeIn>
+    <div class="container">
+      <Section title="Profile" />
+      <div class="description">
+        <!-- TODO 文言変える -->
+        <p>こんにちは、もっくんと申します。</p>
+        <p>
+          近畿大学工業高等専門学校で情報システムとプログラミングを学び、在学中は学生寮の寮長も務めました。
+        </p>
+        <p>
+          卒業後はエンジニアとして入社し、現在はフロントエンドを中心にWeb開発を楽しんでいます。
+        </p>
+        <p>ガジェット・アニメ・麻雀・かわいいものが好きです。</p>
+      </div>
+      <TechStacks />
     </div>
-    <TechStacks />
-  </div>
+  </FadeIn>
 </div>
 
 <style>
