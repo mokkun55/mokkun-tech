@@ -14,7 +14,7 @@ const blogs = (await getCollection("blog", ({ data }) => !data.draft))
 <div class="section" id="Blogs">
   <FadeIn>
     <div class="container">
-      <Section title="Blogs" />
+      <Section title="Blogs" subText="日々の学びや気づきを書いています" />
 
       <div class="card-area">
         {
@@ -40,7 +40,7 @@ const blogs = (await getCollection("blog", ({ data }) => !data.draft))
 <style>
   .section {
     padding: 80px 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 
     .container {
       display: flex;
