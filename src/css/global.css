@@ -31,3 +31,158 @@ body {
 .section {
   width: 100%;
 }
+
+/* Markdown 本文用の共通タイポグラフィ */
+.prose {
+  color: var(--text-primary);
+  line-height: 1.9;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.prose > * + * {
+  margin-top: 1.25em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.prose h1 {
+  font-size: 1.8rem;
+  margin-top: 2.4em;
+  padding-bottom: 0.4em;
+  border-bottom: solid 2px var(--accent);
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: solid 1px var(--border-light);
+}
+
+.prose h3 {
+  font-size: 1.2rem;
+  margin-top: 1.8em;
+}
+
+.prose h4 {
+  font-size: 1.05rem;
+  margin-top: 1.6em;
+}
+
+.prose p {
+  color: var(--text-primary);
+}
+
+.prose a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.prose a:hover {
+  opacity: 0.7;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li + li {
+  margin-top: 0.4em;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose blockquote {
+  padding: 12px 20px;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-secondary);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 2.4em 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.prose code:not(pre code) {
+  background: var(--bg-accent-light);
+  color: var(--accent-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.prose pre {
+  padding: 16px 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  border: 1px solid var(--border-light);
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prose th,
+.prose td {
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--bg-secondary);
+  font-weight: 700;
+}

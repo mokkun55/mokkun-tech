@@ -17,7 +17,7 @@ type Props =
 const { title, text, tags, type, id } = Astro.props;
 ---
 
-<a class="card" href={`/${type}/${id}`}>
+<a class="card" href={`/${type}s/${id}`}>
   {
     type === "work" && (
       // MEMO destructuring後は型の絞り込みが失われるため、img は Astro.props から直接アクセス

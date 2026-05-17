@@ -1,0 +1,118 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Button from "@/components/Button.astro";
+import Tag from "@/components/Tag.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
+import { formatDate } from "@/utils/date";
+
+type Props = {
+  blog: CollectionEntry<"blog">;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogs = await getCollection("blog", ({ data }) => !data.draft);
+  return blogs.map((blog) => ({
+    params: { id: blog.id },
+    props: { blog },
+  }));
+};
+
+const { blog } = Astro.props as Props;
+const { Content } = await render(blog);
+---
+
+<PageLayout
+  title={blog.data.title}
+  breadcrumbs={[
+    { label: "Top", href: "/" },
+    { label: "Blog", href: "/blogs" },
+    { label: blog.data.title },
+  ]}
+>
+  <article class="container">
+    <header class="header">
+      <p class="date">{formatDate(blog.data.publishDate)}</p>
+      <h1 class="title">{blog.data.title}</h1>
+      <p class="description">{blog.data.description}</p>
+      <ul class="tags">
+        {
+          blog.data.tags.map((tag) => (
+            <li>
+              <Tag label={tag} />
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+
+    <hr />
+
+    <div class="content prose">
+      <Content />
+    </div>
+
+    <div class="back">
+      <Button label="一覧に戻る" href="/blogs" type="outline" />
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .container {
+    gap: 32px;
+    margin-bottom: 64px;
+    max-width: var(--prose-width);
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+
+    .date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.4;
+
+      @media (max-width: 480px) {
+        font-size: 1.6rem;
+      }
+    }
+
+    .description {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .tags {
+      margin-top: 4px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .back {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+</style>

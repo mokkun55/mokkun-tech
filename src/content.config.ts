@@ -24,6 +24,8 @@ const work = defineCollection({
       publishDate: z.coerce.date(),
       tags: z.array(z.string()).optional().default([]),
       draft: z.boolean().optional().default(false),
+      githubUrl: z.url().optional(),
+      demoUrl: z.url().optional(),
     }),
 });
 
