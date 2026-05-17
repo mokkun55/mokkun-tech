@@ -8,9 +8,25 @@ import Footer from "./components/Footer.astro";
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
   isFooter?: boolean;
 }
-const { title, isFooter = true } = Astro.props;
+const {
+  title,
+  description = "もっくんのポートフォリオサイト。制作物・ブログ・プロフィールを掲載しています。",
+  ogImage = "/og/default.png",
+  ogType = "website",
+  isFooter = true,
+} = Astro.props;
+
+const siteUrl =
+  Astro.site?.toString().replace(/\/$/, "") ?? "https://mokkun.tech";
+const absoluteOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : `${siteUrl}${ogImage}`;
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <html lang="ja">
@@ -21,6 +37,22 @@ const { title, isFooter = true } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="mokkun.tech" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

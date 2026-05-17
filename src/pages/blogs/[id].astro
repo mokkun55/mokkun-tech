@@ -24,6 +24,9 @@ const { Content } = await render(blog);
 
 <PageLayout
   title={blog.data.title}
+  description={blog.data.description}
+  ogImage={`/og/blogs/${blog.id}.png`}
+  ogType="article"
   breadcrumbs={[
     { label: "Top", href: "/" },
     { label: "Blog", href: "/blogs" },

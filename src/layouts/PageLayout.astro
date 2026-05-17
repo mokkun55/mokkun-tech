@@ -5,11 +5,19 @@ import Layout from "./Layout.astro";
 interface Props {
   breadcrumbs: BreadcrumbItem[];
   title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
 }
-const { breadcrumbs = [], title } = Astro.props;
+const { breadcrumbs = [], title, description, ogImage, ogType } = Astro.props;
 ---
 
-<Layout title={`もっくん - ${title}`}>
+<Layout
+  title={`もっくん - ${title}`}
+  description={description}
+  ogImage={ogImage}
+  ogType={ogType}
+>
   <div class="section">
     <div class="container">
       <Breadcrumbs breadcrumbs={breadcrumbs} />
