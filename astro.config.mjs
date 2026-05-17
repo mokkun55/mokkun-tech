@@ -2,10 +2,12 @@
 import { defineConfig } from "astro/config";
 
 import icon from "astro-icon";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon()],
+  site: "https://mokkun.tech",
+  integrations: [icon(), sitemap()],
   markdown: {
     shikiConfig: {
       themes: {
