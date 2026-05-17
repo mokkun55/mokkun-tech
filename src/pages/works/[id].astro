@@ -26,6 +26,9 @@ const hasLinks = Boolean(work.data.githubUrl || work.data.demoUrl);
 
 <PageLayout
   title={work.data.title}
+  description={work.data.description}
+  ogImage={`/og/works/${work.id}.png`}
+  ogType="article"
   breadcrumbs={[
     { label: "Top", href: "/" },
     { label: "Works", href: "/works" },
